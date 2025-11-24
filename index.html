@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beutanically - Home</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f5f0;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #d2b48c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 36px;
+    color: darkgreen;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+#search {
+    padding: 5px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.cart {
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+}
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-overlay {
+    background: rgba(255,255,255,0.8);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.hero-overlay h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: darkgreen;
+}
+.hero-overlay p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.get-started {
+    display: inline-block;
+    padding: 15px 30px;
+    background: darkgreen;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.get-started:hover {
+    background: green;
+}
+
+/* Featured Plants Section */
+.featured {
+    margin: 50px 20px;
+    text-align: center;
+}
+.featured h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: darkgreen;
+}
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.plant-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.plant-grid img:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">BEAUTANICALLY</div>
+    <nav>
+        <input type="text" id="search" placeholder="Search plants..." />
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="cart">
+            🛒<span class="cart-count" id="cart-count">0</span>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-overlay">
+        <h1>Welcome to Beautanically</h1>
+        <p>Bringing the beauty of Philippine houseplants to your home. Discover our curated selection and make your space lively and green!</p>
+        <a class="get-started" href="product.html">Get Started</a>
+    </div>
+</div>
+
+<!-- Featured Plants Section -->
+<div class="featured">
+    <h2>Featured Plants</h2>
+    <div class="plant-grid">
+        <img src="philodendronbirkin.png" alt="Philodendron Birkin">
+        <img src="haworthiazebrina.png" alt="Haworthia Zebrina">
+        <img src="stringofhearts.png" alt="String of Hearts">
+        <img src="ricraccactus.png" alt="Ric Rac Cactus">
+    </div>
+</div>
+
+<script>
+    // Update cart count from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').innerText = cart.length;
+
+    document.querySelector('.cart').addEventListener('click', ()=>{
+        window.location.href='cart.html';
+    });
+</script>
+
+</body>
+</html>
